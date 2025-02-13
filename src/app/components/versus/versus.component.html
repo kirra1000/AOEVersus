@@ -1,13 +1,13 @@
 <body>
 
     <form class="main-format">
+        <h2>AOE Versus</h2>
         <div class="vertical">
             <div class="horizontal">
                 <mat-form-field class="example-full-width">
                     <mat-label>Player</mat-label>
 
                     <mat-select (selectionChange)="onPlayerChange($event.value)">
-
 
                         @for (player of players; track player) {
                         <mat-option [value]="player.profileIds">{{ player.name }}</mat-option>
@@ -61,7 +61,7 @@
 
 
         <button mat-raised-button color="primary" [disabled]="ifLoading"
-            (click)="getGameRecordBetweenNew()">Generate</button>
+            (click)="getGameRecordBetweenNew()">Results</button>
     </form>
 
     <section>

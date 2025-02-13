@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { MatSelectModule } from '@angular/material/select';
-import { MatTable, MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { CurrencyPipe, DatePipe, DecimalPipe } from '@angular/common';
 import { ProgressBarMode, MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
@@ -14,10 +14,6 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { commonPlayers, GameData } from '../../types';
 import { catchError, forkJoin, Observable, throwError } from 'rxjs';
 import { MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/core';
-
-
-// import fetch from "node-fetch";
-// import * as fs from 'fs';
 
 type ExportStructure = {
   gameId: number;
@@ -39,10 +35,7 @@ type ExportStructure = {
   styleUrl: './versus.component.scss'
 })
 
-// gameID: 134024452 Opponent won: 8770503 The profile ID: 8770503 We are at 322 The updated at: 2024-06-25 The Map: Gorge Total games: 1 Player won :0 Opponent won :1 Game Ids: 134024452
 // Last column: total wins, total losses, total games, win rate, 
-
-
 
 export class VersusComponent implements AfterViewInit {
 
@@ -64,7 +57,7 @@ export class VersusComponent implements AfterViewInit {
 
   players = commonPlayers;
 
-  // These are just defaults. Don't reset these in the program later.
+  // These are just defaults. Don't manually reset these values.
   playerIdsInput = '585764';
   opponentsIdsInput = '2942077';
 
@@ -97,11 +90,6 @@ export class VersusComponent implements AfterViewInit {
   gamesWon = 0;
   winRate = 0;
 
-
-  public delay(time: number) {
-    return new Promise(resolve => setTimeout(resolve, time));
-  }
-
   public getAllIndexes(arr: any[], val: any) {
     var indexes = [], i = -1;
     while ((i = arr.indexOf(val, i + 1)) != -1) {
@@ -110,8 +98,7 @@ export class VersusComponent implements AfterViewInit {
     return indexes;
   }
 
-
-
+  // Reset used variables
   public reset() {
     this.playerWins = 0;
     this.opponentsWins = 0;
@@ -183,11 +170,6 @@ export class VersusComponent implements AfterViewInit {
               let newEntry: ExportStructure;
               newEntry = { gameId: game.game_id, playerId: formattedResponse.filters.profile_ids[0], opponentId: parseInt(formattedResponse.filters.opponent_profile_id), result: '', map: '', date: '', gamelink: '', alternativeGameLink: '' };
 
-              // console.log('profile_ids: ', formattedResponse.filters.profile_ids[0]);
-              // console.log('The game profile Id: ', game.teams[0][0].player.profile_id);
-              // console.log('Do they match: ', game.teams[0][0].player.profile_id == formattedResponse.filters.profile_ids[0]);
-              // console.log('The game result: ', game.teams[0][0].player.result);
-
               if (game.teams[0][0].player.profile_id == formattedResponse.filters.profile_ids[0]) {
                 if (game.teams[0][0].player.result == 'win') {
                   newEntry.result = 'win';
@@ -218,8 +200,6 @@ export class VersusComponent implements AfterViewInit {
       this.totalGames = this.totalGames + totalArray.length;
       this.winRate = (this.gamesWon / this.totalGames) * 100;
     });
-
-
   }
 
   getData(request: string): Observable<any> {
@@ -232,17 +212,13 @@ export class VersusComponent implements AfterViewInit {
     let errorMessage = 'An unknown error occurred!';
 
     if (error.error instanceof ErrorEvent) {
-      // Client-side or network error
       errorMessage = `Client-side error: ${error.error.message}`;
     } else {
-      // Backend returned an unsuccessful response code
       errorMessage = `Server-side error: ${error.status} - ${error.message}`;
     }
 
-    // Log the error to the console (or send it to a logging service)
     console.error(errorMessage);
 
-    // Return a user-friendly error message
     return throwError(() => new Error(errorMessage));
   }
 
