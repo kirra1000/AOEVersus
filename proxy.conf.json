@@ -1,0 +1,11 @@
+{
+    "/api/**": {
+        "target": "https://aoe4world.com",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug",
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
+}

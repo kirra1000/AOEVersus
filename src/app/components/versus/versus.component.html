@@ -6,37 +6,25 @@
             <div class="horizontal">
                 <mat-form-field class="full-width">
                     <mat-label>Player</mat-label>
-
                     <mat-select (selectionChange)="onPlayerChange($event.value)">
-
                         @for (player of players; track player) {
                         <mat-option [value]="player.profileIds">{{ player.name }}</mat-option>
                         }
                     </mat-select>
-
                 </mat-form-field>
-
                 <mat-form-field class="input-field">
                     <input matInput [(ngModel)]="playerIdsInput" name="playerName" placeholder="Player profile ID">
                 </mat-form-field>
             </div>
-
-
-
             <h4>VS</h4>
-
             <div class="horizontal">
                 <mat-form-field class="full-width">
                     <mat-label>Opponent</mat-label>
-
                     <mat-select (selectionChange)="onOpponentChange($event.value)">
-
-
                         @for (opponent of players; track opponent) {
                         <mat-option [value]="opponent.profileIds">{{ opponent.name }}</mat-option>
                         }
                     </mat-select>
-
                 </mat-form-field>
 
                 <mat-form-field class="input-field">

@@ -1,3 +1,8 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 .main-format {
     display: flex;
     align-content: space-around;
@@ -36,14 +41,6 @@
 .output-table {
     width: 95vw;
     padding: 0 2% 0 2%;
-}
-
-html, body {
-
-    background-color: #121212;
-    height: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 h4 {

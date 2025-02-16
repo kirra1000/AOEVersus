@@ -1,0 +1,40 @@
+<div class="main-container">
+    <h1>Idle TC Calculator</h1>
+    <h4>Input game id and profile id</h4>
+    <div class="input-container">
+        <mat-form-field class="input-field">
+            <input matInput type="number" placeholder="game id" [(ngModel)]="gameId">
+        </mat-form-field>
+
+        <mat-form-field class="input-field">
+            <input matInput type="number" placeholder="profile id" [(ngModel)]="profileId">
+        </mat-form-field>
+
+        <!-- Create a selector that selects time in 20 second increments -->
+        <div>
+            <mat-form-field>
+                <mat-label>Up to time</mat-label>
+                <mat-select [(ngModel)]="selectedTime">
+                    @for (time of times; track time) {
+                    <mat-option [value]="time.value">{{time.viewValue}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        @if (isLoading) {
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        }
+    </div>
+    <button mat-raised-button color="primary" (click)="calculateIdleTC()">Calculate</button>
+    <h4>Seconds Idled: {{ idleTCTime | date:'mm:ss' }}s</h4>
+    <div>
+        Perfect villager creation amount: {{ perfectAmountOfVills }}
+    </div>
+    <div>
+        Your creation count: {{ totalvillCount }}
+    </div>
+
+    Note: Can't track japan yorishiro in TC or the Ottoman Pax Ottomana. <br>
+    French and OOTD games will be off as the data records every 20 seconds.
+</div>
