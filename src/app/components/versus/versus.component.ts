@@ -157,6 +157,10 @@ export class VersusComponent implements AfterViewInit {
 
     let totalArray: ExportStructure[] = [];
     this.ifLoading = true;
+    // wait 10 seconds before changing ifLoading to false
+    setTimeout(() => {
+      this.ifLoading = false;
+    }, 10000);
 
     const combined = forkJoin(this.requests.map(request => this.getData(request)));
 
@@ -194,7 +198,6 @@ export class VersusComponent implements AfterViewInit {
           totalArray.push(...resultArray);
         }
       });
-      this.ifLoading = false;
       this.outputTable.data = totalArray;
       this.gamesWon = this.gamesWon + totalArray.filter(game => game.result == 'win').length;
       this.totalGames = this.totalGames + totalArray.length;

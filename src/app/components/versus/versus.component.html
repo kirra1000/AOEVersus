@@ -13,7 +13,8 @@
                     </mat-select>
                 </mat-form-field>
                 <mat-form-field class="input-field">
-                    <input matInput [(ngModel)]="playerIdsInput" name="playerName" placeholder="Player profile ID">
+                    <input matInput [(ngModel)]="playerIdsInput" maxlength="100" name="playerName"
+                        placeholder="Player profile ID">
                 </mat-form-field>
             </div>
             <h4>VS</h4>
@@ -28,7 +29,7 @@
                 </mat-form-field>
 
                 <mat-form-field class="input-field">
-                    <input matInput [(ngModel)]="opponentsIdsInput" name="OpponentName"
+                    <input matInput [(ngModel)]="opponentsIdsInput" maxlength="100" name="OpponentName"
                         placeholder="Opponent profile ID">
                 </mat-form-field>
             </div>
