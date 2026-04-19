@@ -73,7 +73,8 @@ export const commonPlayers = [
     { name: 'Peppino piggg', profileIds: [6552004] },
     // { name: 'Praetorian', profileIds: [7188408] },
     { name: 'Puppypaw', profileIds: [8446710, 8783044, 3592906] },
-    // { name: 'Renion', profileIds: [5065284, 10939549, 11548504, 9287427, 10411496, 10832054, 17971186, 19563347, 15418341] },
+    // { name: 'Renion', profileIds: [5065284,10939549,11548504,9287427,10411496,10832054,17971186,19563347,15418341] },
+    // { name: 'Gilv', profileIds: [1714179,18084366] }, 
     { name: 'Rob the viking', profileIds: [6914972] },
     // { name: 'Sky-Fox', profileIds: [9189043, 10477434] },
     { name: 'Snoopa', profileIds: [3587904, 4492346] },
@@ -93,6 +94,8 @@ export const commonPlayers = [
     { name: 'Core', profileIds: [7090781, 10089637, 12215259] },
     { name: 'Crackedy', profileIds: [230361, 11542281, 9549670] },
     { name: 'Downfall', profileIds: [6975115, 11275167] },
+    { name: 'Whamen', profileIds: [8824061, 11875015, 11763649, 11358848, 18782344, 11569372, 14860458, 20842658, 11430510] },
+    { name: 'Jeff', profileIds: [8026153, 19909152, 14128236, 12089606, 14827591, 15460766, 22475625, 22475625] },
     // { name: 'ChuckFrancis', profileIds: [520130] },
     // { name: 'Winter', profileIds: [12220294] },
     // { name: 'Nulli Secundus', profileIds: [5449779] }
